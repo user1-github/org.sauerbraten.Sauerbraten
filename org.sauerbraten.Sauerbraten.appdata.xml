@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2017 Daniel Rusek <mail@asciiwolf.com> -->
 <application>
-  <id type="desktop">sauerbraten.desktop</id>
+  <id type="desktop">org.sauerbraten.Sauerbraten.desktop</id>
   <project_license>Zlib</project_license>
   <metadata_license>CC0-1.0</metadata_license>
   <name>Sauerbraten</name>

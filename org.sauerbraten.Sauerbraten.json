@@ -13,9 +13,6 @@
         "--persist=.sauerbraten"
     ],
     "command": "sauerbraten",
-    "rename-appdata-file": "sauerbraten.appdata.xml",
-    "rename-desktop-file": "sauerbraten.desktop",
-    "rename-icon": "sauerbraten",
     "cleanup": [
         "/include",
         "/lib/pkgconfig",
@@ -46,11 +43,11 @@
                 },
                 {
                     "type": "file",
-                    "path": "sauerbraten.desktop"
+                    "path": "org.sauerbraten.Sauerbraten.desktop"
                 },
                 {
                     "type": "file",
-                    "path": "sauerbraten.appdata.xml"
+                    "path": "org.sauerbraten.Sauerbraten.appdata.xml"
                 }
             ],
             "post-install": [
@@ -59,9 +56,9 @@
                 "install -Dm755 sauer_server /app/share/sauerbraten/sauerbraten_server",
                 "cp -r ../data /app/share/sauerbraten/",
                 "cp -r ../packages /app/share/sauerbraten/",
-                "install -Dm644 ../data/cube.png /app/share/icons/hicolor/256x256/apps/sauerbraten.png",
-                "install -Dm644 ../sauerbraten.desktop /app/share/applications/sauerbraten.desktop",
-                "install -Dm644 ../sauerbraten.appdata.xml /app/share/appdata/sauerbraten.appdata.xml"
+                "install -Dm644 ../data/cube.png /app/share/icons/hicolor/256x256/apps/org.sauerbraten.Sauerbraten.png",
+                "install -Dm644 ../org.sauerbraten.Sauerbraten.desktop /app/share/applications/org.sauerbraten.Sauerbraten.desktop",
+                "install -Dm644 ../org.sauerbraten.Sauerbraten.appdata.xml /app/share/appdata/org.sauerbraten.Sauerbraten.appdata.xml"
         ]
         }
     ]
