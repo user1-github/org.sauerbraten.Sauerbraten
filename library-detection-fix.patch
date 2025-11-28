@@ -1,7 +1,7 @@
 From 003042d4d1e278cad5290a195ec14825589e4631 Mon Sep 17 00:00:00 2001
 From: user1-github <56021366+user1-github@users.noreply.github.com>
 Date: Fri, 5 Sep 2025 14:18:30 +0300
-Subject: [PATCH] Patch makefile to make Sauerbraten find SDL2_image in
+Subject: [PATCH] Patch makefile to make Sauerbraten detect libraries in
  /app/lib
 
 ---
