@@ -16,7 +16,6 @@ modules:
 
   - name: sauerbraten
     no-autogen: true
-    no-make-install: true
     subdir: src
     sources:
       - type: archive
@@ -35,8 +34,8 @@ modules:
     post-install:
       - install -Dm755 ../sauerbraten.sh /app/bin/sauerbraten
       - install -Dm755 ../sauerbraten_server.sh /app/bin/sauerbraten_server
-      - install -Dm755 sauer_client /app/share/sauerbraten/sauerbraten
-      - install -Dm755 sauer_server /app/share/sauerbraten/sauerbraten_server
+      - install -Dm755 ../bin_unix/native_client /app/share/sauerbraten/sauerbraten
+      - install -Dm755 ../bin_unix/native_server /app/share/sauerbraten/sauerbraten_server
       - cp -a ../data ../packages /app/share/sauerbraten
       - install -Dm644 ../data/cube.png /app/share/icons/hicolor/256x256/apps/org.sauerbraten.Sauerbraten.png
       - install -Dm644 ../org.sauerbraten.Sauerbraten.desktop /app/share/applications/org.sauerbraten.Sauerbraten.desktop
