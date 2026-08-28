@@ -30,7 +30,9 @@ modules:
       - type: file
         path: org.sauerbraten.Sauerbraten.metainfo.xml
       - type: patch
-        path: makefile-modernisation.patch
+        path: patches/gcc16.patch
+      - type: patch
+        path: patches/makefile-modernisation.patch
     post-install:
       - install -Dm755 ../sauerbraten.sh /app/bin/sauerbraten
       - install -Dm755 ../sauerbraten_server.sh /app/bin/sauerbraten_server
