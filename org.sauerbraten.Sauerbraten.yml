@@ -13,6 +13,7 @@ finish-args:
   - --persist=.sauerbraten # Sauerbraten does not respect XDG base directories
 modules:
   - shared-modules/SDL2/SDL2_image.json
+  - shared-modules/SDL2/SDL2_mixer.json
 
   - name: sauerbraten
     no-autogen: true
