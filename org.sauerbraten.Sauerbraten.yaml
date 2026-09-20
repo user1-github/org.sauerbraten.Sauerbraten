@@ -16,6 +16,11 @@ modules:
   - shared-modules/SDL2/SDL2_mixer.json
 
   - name: enet
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+      - '*.la'
+      - '*.a'
     sources:
       - type: archive
         url: http://enet.bespin.org/download/enet-1.3.18.tar.gz
