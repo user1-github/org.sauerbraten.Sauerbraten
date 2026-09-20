@@ -37,6 +37,8 @@ modules:
       - type: file
         path: sauerbraten.sh
       - type: file
+        path: CMakeLists.txt
+      - type: file
         path: org.sauerbraten.Sauerbraten.desktop
       - type: patch
         path: gcc16.patch
