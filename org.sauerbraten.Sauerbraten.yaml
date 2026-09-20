@@ -7,16 +7,23 @@ finish-args:
   - --device=dri
   - --share=ipc
   - --share=network
-  - --socket=fallback-x11
   - --socket=wayland
+  - --socket=fallback-x11
   - --socket=pulseaudio
-  - --persist=.sauerbraten # Sauerbraten does not respect XDG base directories
+  - --persist=.sauerbraten
 modules:
   - shared-modules/SDL2/SDL2_image.json
   - shared-modules/SDL2/SDL2_mixer.json
 
+  - name: enet
+    sources:
+      - type: archive
+        url: http://enet.bespin.org/download/enet-1.3.18.tar.gz
+        sha256: 2a8a0c5360d68bb4fcd11f2e4c47c69976e8d2c85b109dd7d60b1181a4f85d36
+
   - name: sauerbraten
-    no-autogen: true
+    buildsystem: cmake-ninja
+    no-make-install: true
     subdir: src
     sources:
       - type: archive
@@ -25,21 +32,16 @@ modules:
       - type: file
         path: sauerbraten.sh
       - type: file
-        path: sauerbraten_server.sh
-      - type: file
         path: org.sauerbraten.Sauerbraten.desktop
-      - type: file
-        path: org.sauerbraten.Sauerbraten.metainfo.xml
       - type: patch
-        path: patches/gcc16.patch
-      - type: patch
-        path: patches/makefile-modernisation.patch
+        path: gcc16.patch
+      - type: shell
+        commands:
+          - cp CMakeLists.txt -t src
     post-install:
-      - install -Dm755 ../sauerbraten.sh /app/bin/sauerbraten
-      - install -Dm755 ../sauerbraten_server.sh /app/bin/sauerbraten_server
-      - install -Dm755 ../bin_unix/native_client /app/share/sauerbraten/sauerbraten
-      - install -Dm755 ../bin_unix/native_server /app/share/sauerbraten/sauerbraten_server
+      - mkdir -p /app/share/sauerbraten
       - cp -a ../data ../packages /app/share/sauerbraten
+      - install -Dm755 sauerbraten_linux -t /app/bin
+      - install -Dm755 ../sauerbraten.sh /app/bin/sauerbraten
       - install -Dm644 ../data/cube.png /app/share/icons/hicolor/256x256/apps/org.sauerbraten.Sauerbraten.png
-      - install -Dm644 ../org.sauerbraten.Sauerbraten.desktop /app/share/applications/org.sauerbraten.Sauerbraten.desktop
-      - install -Dm644 ../org.sauerbraten.Sauerbraten.metainfo.xml /app/share/metainfo/org.sauerbraten.Sauerbraten.metainfo.xml
+      - install -Dm644 ../org.sauerbraten.Sauerbraten.desktop -t /app/share/applications
